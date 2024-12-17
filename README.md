@@ -1,61 +1,97 @@
-# `icp_wallet_contract`
+📦 ICP Token Wallet
+This project is an ICP token wallet contract backend built using Rust. It allows users to send and receive ICP tokens while maintaining wallet balances securely.
 
-Welcome to your new `icp_wallet_contract` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+📜 Table of Contents
+Project Overview
+Features
+Tech Stack
+Setup Instructions
+Running Tests
+Folder Structure
+Contributing
+License
+Contact
+🚀 Project Overview
+The ICP Token Wallet is a backend project for managing ICP token wallets. It allows functionalities such as:
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+Sending ICP tokens between wallets
+Receiving ICP tokens
+Checking wallet balances
+Secure wallet address validation
+This backend uses Rust and IC-CDK to build a decentralized backend for ICP wallets.
 
-To learn more before you start working with `icp_wallet_contract`, see the following documentation available online:
+🔥 Features
+✅ Send tokens
+✅ Receive tokens
+✅ Balance checking
+✅ Wallet address validation
+✅ Simple and maintainable backend codebase
+🛠️ Tech Stack
+Language: Rust
+Framework: IC-CDK
+Dependencies:
+candid
+ic-cdk
+serde
+ic-cdk-macros
+📂 Setup Instructions
+1. Prerequisites
+Make sure you have the following installed on your system:
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Rust Canister Development Guide](https://internetcomputer.org/docs/current/developer-docs/backend/rust/)
-- [ic-cdk](https://docs.rs/ic-cdk)
-- [ic-cdk-macros](https://docs.rs/ic-cdk-macros)
-- [Candid Introduction](https://internetcomputer.org/docs/current/developer-docs/backend/candid/)
+Rust
+Cargo
+Git
+2. Clone the Project
+Clone the project repository:
 
-If you want to start working on your project right away, you might want to try the following commands:
+bash
+Copy code
+git clone https://github.com/arxel2468/icp-token-wallet.git
+cd icp-token-wallet
+3. Build the Project
+Build the project to ensure everything is in place:
 
-```bash
-cd icp_wallet_contract/
-dfx help
-dfx canister --help
-```
+bash
+Copy code
+cargo build
+4. Run Tests
+Run unit tests to ensure everything works correctly:
 
-## Running the project locally
+bash
+Copy code
+cargo test
+If you want to run integration tests:
 
-If you want to test your project locally, you can use the following commands:
+bash
+Copy code
+cargo test --all
+5. Running the Application
+Deploy the project to your local environment using your ICP environment setup.
+Use the cargo commands to interact with the wallet contract on ICP.
+🗂️ Folder Structure
+css
+Copy code
+icp_wallet_contract/
+├── src/
+├── tests/
+├── icp_wallet_contract_backend/
+├── Cargo.toml
+├── README.md
+├── .gitignore
+├── LICENSE
+Explanation:
+src/: Main Rust codebase for your wallet project.
+tests/: Unit and integration tests.
+icp_wallet_contract_backend/: Contains the backend configuration and dependencies.
+Cargo.toml: Dependency management.
+.gitignore: Ensures unnecessary files aren't included.
+🤝 Contributing
+We welcome contributions! Here's how you can contribute:
 
-```bash
-# Starts the replica, running in the background
-dfx start --background
+Fork the project.
+Clone the project and make your changes.
+Run all tests to verify your changes.
+Open a pull request with a detailed description of your changes.
+If you have any bugs or issues, raise an issue on the GitHub Repo.
 
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
-```
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
-
-If you have made changes to your backend canister, you can generate a new candid interface with
-
-```bash
-npm run generate
-```
-
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
-
-If you are making frontend changes, you can start a development server with
-
-```bash
-npm start
-```
-
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
-
-### Note on frontend environment variables
-
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
-
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor

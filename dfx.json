@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "icp_wallet_contract_backend": {
+      "candid": "src/icp_wallet_contract_backend/icp_wallet_contract_backend.did",
+      "package": "icp_wallet_contract_backend",
+      "type": "rust"
+    },
+    "icp_wallet_contract_frontend": {
+      "dependencies": [
+        "icp_wallet_contract_backend"
+      ],
+      "source": [
+        "src/icp_wallet_contract_frontend/assets"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
